@@ -40,8 +40,6 @@ class Student
   
   def self.new_from_db(row)
     student = self.new(row[0], row[1], row[2])
-    binding.pry
-    student
   end
   
   def self.find_by_name(name)
@@ -53,9 +51,5 @@ class Student
     sql = "UPDATE students SET name = ?, grade = ? WHERE id = ?"
     DB[:conn].execute(sql, self.name, self.grade, self.id)
   end
-
-  # Remember, you can access your database connection anywhere in this class
-  #  with DB[:conn]
-
 
 end
